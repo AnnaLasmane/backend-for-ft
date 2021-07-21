@@ -11,7 +11,7 @@ const server = express();
 server.use(bodyParser.json());
 server.use(cors());
 
-server.use('/chat', chatRoutes);
+server.use('/chats', chatRoutes);
 
 mongoose.connect(process.env.MONGOOSE_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true },
     (err) => {
