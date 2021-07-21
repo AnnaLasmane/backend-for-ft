@@ -1,24 +1,24 @@
 import express from 'express';
-import ChatMessage from '../models/ChatMessage.js';
+import Chat from '../models/Chat.js';
 
 const router = express.Router();
 
 router.get('/', async(req, res) => {
     try {
-        const query = ChatMessage.find({}); 
-        const chatMessages = await query.exec();
-        res.json(chatMessages);
+        const query = Chat.find({}); 
+        const chats = await query.exec();
+        res.json(chats);
     } catch (e) {
         res.json({ error: true, message: e });
     }
 });
 
 router.post('/', async(req, res) => {
-    const newChatMessageData = {
+    const newChatData = {
         username: req.body.username,
         message: req.body.message,
     }
-    const chatMessage = new ChatMessage(newChatMessageData);
+    const chatMessage = new Chat(newChatData);
     try {
         const chatEntity = await chatMessage.save();
         res.json(chatEntity);

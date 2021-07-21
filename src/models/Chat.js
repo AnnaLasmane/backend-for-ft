@@ -5,7 +5,7 @@ const chatSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    text: {
+    message: {
         type: String,
         required: true
     },
@@ -15,6 +15,6 @@ const chatSchema = mongoose.Schema({
     }
 })
 
-const chatMessage = mongoose.model('ChatMessages', chatSchema);
+const chat = mongoose.model('Chats', chatSchema);
 
-export default chatMessage;
+export default chat;
